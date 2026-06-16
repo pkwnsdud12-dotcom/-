@@ -12,9 +12,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - run: yes | sdkmanager --licenses || true
       - run: chmod +x ./gradlew
-      - run: ./gradlew assembleDebug --stacktrace
+      - run: ./gradlew assembleDebug --stacktrace --no-daemon
       - uses: actions/upload-artifact@v4
         with:
           name: iPhoneXSCam-apk
           path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: warn
