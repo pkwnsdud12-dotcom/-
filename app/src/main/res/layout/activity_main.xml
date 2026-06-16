@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <!--
+      GLSurfaceView 가 카메라 SurfaceTexture 를 외부 텍스처(GL_TEXTURE_EXTERNAL_OES)로 받아
+      GLSL 셰이더로 색감 변환 후 화면에 렌더링하는 뷰파인더.
+      CameraX 의 PreviewView 를 사용하지 않고 직접 GL 파이프라인을 구성한다.
+    -->
+    <android.opengl.GLSurfaceView
+        android:id="@+id/glSurfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 셔터 버튼 -->
+    <ImageButton
+        android:id="@+id/btnShutter"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/shutter_button"
+        android:contentDescription="@string/shutter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- LUT 토글 버튼 -->
+    <Button
+        android:id="@+id/btnLut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="64dp"
+        android:text="@string/toggle_lut"
+        android:textSize="12sp"
+        android:backgroundTint="#33FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 색감 모드 표시 텍스트 -->
+    <TextView
+        android:id="@+id/tvMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="24dp"
+        android:text="iPhone XS Color Science : MATH"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:shadowColor="#000000"
+        android:shadowRadius="4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

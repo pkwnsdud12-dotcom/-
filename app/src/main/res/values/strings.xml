@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">iPhone XS Cam</string>
+    <string name="shutter">촬영</string>
+    <string name="toggle_lut">LUT 토글</string>
+    <string name="permission_required">카메라 권한이 필요합니다.</string>
+</resources>
