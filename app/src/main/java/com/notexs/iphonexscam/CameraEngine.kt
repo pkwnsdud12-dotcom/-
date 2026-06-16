@@ -165,8 +165,9 @@ class CameraEngine(
     }
 
     /** 단일 CaptureRequest 키를 안전하게 설정 (미지원 시 무시). */
+    // V : Any 제약 -> setCaptureRequestOption 의 non-null 파라미터 요구사항 충족
     @SuppressLint("UnsafeOptInUsageError", "RestrictedApi")
-    private fun <T, V> safeSet(
+    private fun <T, V : Any> safeSet(
         extender: Camera2Interop.Extender<T>,
         key: CaptureRequest.Key<V>,
         value: V,
